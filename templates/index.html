@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Diabetes Predictor</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='diabetes-favicon.ico') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+        <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Website Title -->
+    	<div class="container">
+            <h2 class='container-heading'><span class="heading_font">Diabetes Predictor</span></h2>
+            <div class='description'>
+    			<p>A Machine Learning Web App, Built with Flask, Deployed using Heroku.</p>
+    		</div>
+    	</div>
+
+        <!-- Text Area -->
+    	<div class="ml-container">
+    		<form action="{{ url_for('predict') }}" method="POST">
+                <input class="form-input" type="text" name="age" placeholder="your age eg. 35"><br>
+                <input class="form-input" type="text" name="sex" placeholder="sex eg. 0"><br>
+                <input class="form-input" type="text" name="chest_pain_type" placeholder="chesk pain type eg. 80"><br>
+                <input class="form-input" type="text" name="resting_blood_pressure" placeholder="resting_blood_pressure eg. 20"><br>
+                <input class="form-input" type="text" name="cholesterol" placeholder="cholesterol eg. 80"><br>
+                <input class="form-input" type="text" name="fasting_blood_sugar" placeholder="fasting_blood_sugar eg. 23.1"><br>
+                <input class="form-input" type="text" name="rest_ecg" placeholder="rest_ecg eg. 0.52"><br>
+                <input class="form-input" type="text" name="max_heart_rate_achieved" placeholder="max_heart_rate_achieved eg. 34"><br>
+                <input class="form-input" type="text" name="exercise_induced_angina" placeholder="exercise_induced_angina eg. 34"><br>
+                <input class="form-input" type="text" name="st_depression" placeholder="st_depression eg. 34"><br>
+                <input class="form-input" type="text" name="st_slope" placeholder="st_slope eg. 34"><br>
+                <input class="form-input" type="text" name="num_major_vessels" placeholder="num_major_vessels eg. 34"><br>
+                <input class="form-input" type="text" name="thalassemia" placeholder="thalassemia eg. 34"><br>
+
+        		<input type="submit" class="my-cta-button" value="Predict">
+        	</form>
+    	</div>
+
+        <!-- Footer -->
+       <div class='footer'>
+           <div class="contact">
+               <a target="_blank" href="https://github.com/anujvyas/Diabetes-Prediction-Deployment"><i class="fab fa-github fa-lg contact-icon"></i></a>
+               <a target="_blank" href="https://www.linkedin.com/in/anujkvyas"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+           </div>
+           <p class='footer-description'>Made with ❤️ by Divyanshu Bansal.</p>
+       </div>
+
+    </body>
+</html>
