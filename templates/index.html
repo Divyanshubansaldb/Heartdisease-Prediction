@@ -1,54 +1,254 @@
 <!DOCTYPE html>
+<html lang="en">
 
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Diabetes Predictor</title>
-        <link rel="shortcut icon" href="{{ url_for('static', filename='diabetes-favicon.ico') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
-        <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <body>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800&display=swap');
 
-        <!-- Website Title -->
-    	<div class="container">
-            <h2 class='container-heading'><span class="heading_font">Diabetes Predictor</span></h2>
-            <div class='description'>
-    			<p>A Machine Learning Web App, Built with Flask, Deployed using Heroku.</p>
-    		</div>
-    	</div>
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-        <!-- Text Area -->
-    	<div class="ml-container">
-    		<form action="{{ url_for('predict') }}" method="POST">
-                <input class="form-input" type="text" name="age" placeholder="your age eg. 35"><br>
-                <input class="form-input" type="text" name="sex" placeholder="sex eg. 0"><br>
-                <input class="form-input" type="text" name="chest_pain_type" placeholder="chesk pain type eg. 80"><br>
-                <input class="form-input" type="text" name="resting_blood_pressure" placeholder="resting_blood_pressure eg. 20"><br>
-                <input class="form-input" type="text" name="cholesterol" placeholder="cholesterol eg. 80"><br>
-                <input class="form-input" type="text" name="fasting_blood_sugar" placeholder="fasting_blood_sugar eg. 23.1"><br>
-                <input class="form-input" type="text" name="rest_ecg" placeholder="rest_ecg eg. 0.52"><br>
-                <input class="form-input" type="text" name="max_heart_rate_achieved" placeholder="max_heart_rate_achieved eg. 34"><br>
-                <input class="form-input" type="text" name="exercise_induced_angina" placeholder="exercise_induced_angina eg. 34"><br>
-                <input class="form-input" type="text" name="st_depression" placeholder="st_depression eg. 34"><br>
-                <input class="form-input" type="text" name="st_slope" placeholder="st_slope eg. 34"><br>
-                <input class="form-input" type="text" name="num_major_vessels" placeholder="num_major_vessels eg. 34"><br>
-                <input class="form-input" type="text" name="thalassemia" placeholder="thalassemia eg. 34"><br>
+    body {
+      align-items: center;
+      background: #091921;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+  	height: 100%;
+    flex-direction: column;
+      /* min-height: 100vh; */
+    }
 
-        		<input type="submit" class="my-cta-button" value="Predict">
-        	</form>
-    	</div>
+    .form {
+      background: #091921;
+      border-radius: 10px;
+      box-shadow: -5px -5px 8px rgba(255, 255, 255, 0.1),
+        5px 5px 15px rgba(0, 0, 0, 0.8);
+      padding: 50px 20px 60px;
+      position: relative;
+      text-align: center;
+      width: 670px;
+    }
 
-        <!-- Footer -->
-       <div class='footer'>
-           <div class="contact">
-               <a target="_blank" href="https://github.com/anujvyas/Diabetes-Prediction-Deployment"><i class="fab fa-github fa-lg contact-icon"></i></a>
-               <a target="_blank" href="https://www.linkedin.com/in/anujkvyas"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
-           </div>
-           <p class='footer-description'>Made with ❤️ by Divyanshu Bansal.</p>
-       </div>
+    .form h2 {
+      color: #22F2AA;
+      font-size: 28px;
+      font-weight: 700;
+      text-shadow: 0 0 10px #22F2AA;
+      text-transform: uppercase;
+    }
 
-    </body>
+    .form .form-content {
+      margin: 45px 22px;
+      text-align: left;
+    }
+
+    .form .form-content .form-box {
+      margin-top: 25px;
+    }
+
+    .form .form-content .form-box label {
+      color: #FFFFFF;
+      display: block;
+      font-size: 18px;
+      letter-spacing: 2px;
+      margin-bottom: 5px;
+    }
+
+    .form .form-content .form-box input {
+      background: #091921;
+      border: none;
+      border-radius: 10px;
+      box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.1),
+        inset 3px 3px 6px rgba(0, 0, 0, 0.8);
+      color: #6f6f6f;
+      font-size: 18px;
+      height: 50px;
+      outline: none;
+      padding: 5px 15px;
+      width: 100%;
+    }
+
+    .form .form-content .form-box input:focus {
+      text-shadow: 0 0 10px #22F2AA;
+      color: #22F2AA;
+    }
+
+    .form .form-content .form-box input[type="submit"] {
+      box-shadow: -3px -3px 6px rgba(255, 255, 255, 0.1),
+        3px 3px 6px rgba(0, 0, 0, 0.8);
+      font-weight: 600;
+      margin-top: 20px;
+    }
+
+    .form .form-content .form-box input[type="submit"]:active {
+      box-shadow: 0 0 20px #22F2AA;
+      background: #22F2AA;
+      color: #091921;
+      margin-top: 20px;
+    }
+
+    .form .form-content .form-box input::placeholder {
+      color: #6f6f6f;
+      text-shadow: none !important;
+      font-size: 18px;
+    }
+
+    .form-forget {
+      color: #6f6f6f;
+      margin-top: 30px;
+    }
+
+    .form-forget a {
+      color: #22F2AA;
+      text-shadow: 0 0 10px #22F2AA;
+    }
+    .footer{
+    	flex-shrink: 0;
+    	position: relative;
+      width: 1080px;
+    	padding: 20px;
+    	background: linear-gradient(45deg, #443B96, #F60B68, #F4483A);
+    	background-size: 500% 500%;
+    	animation: change-gradient 10s ease-in-out infinite;
+    }
+
+    .footer-description{
+    	color: #ffffff;
+      text-align: center;
+    	margin: 0;
+    	font-size: 12px;
+    }
+
+    .container{
+        background: linear-gradient(45deg, #443B96, #F60B68, #F4483A);
+        border-radius: 10px;
+        box-shadow: -5px -5px 8px rgba(255, 255, 255, 0.1),
+        5px 5px 15px rgba(0, 0, 0, 0.8);
+        padding: 50px 20px 60px;
+        position: relative;
+        text-align: center;
+        /* width: 670px; */
+    }
+
+    .container h2 {
+        color: #ffffff;
+        font-family: 'Pacifico', cursive,bold;
+        font-size: 75px;
+        font-weight: normal;
+    }
+    .container p {
+        color: #ffffff;
+        font-family: 'Pacifico', cursive;
+        font-size: 35px;
+        font-weight: normal;
+    }
+    
+    .contact-icon{
+        color: #ffffff;
+        padding: 7px;
+    }
+
+    .contact-icon:hover{
+        color: #8c8c8c;
+    }
+
+    .footer .contact{
+        margin-left: 47%;
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h2 class='container-heading'><span class="heading_font">Heart-Disease Predictor</span></h2>
+        <div class='description'>
+            <p>A Machine Learning Web App, Built with Flask, Deployed using Heroku.</p>
+        </div>
+    </div>
+
+  <div class="form">
+    <form action="{{ url_for('predict') }}" method="POST">
+    <div class="form-content">
+      <div class="form-box">
+
+        <input type="text" name="age" placeholder="your age in years eg. 35">
+      </div>
+      <div class="form-box">
+
+        <input type="text" name="sex" placeholder="sex eg. 1=male or 0=female">
+      </div>
+      <div class="form-box">
+        <input type="text" name="chest_pain_type" placeholder="chesk pain type eg. 1 or 2 or 3 or 4">
+
+      </div>
+      <div class="form-box">
+        <input type="text" name="resting_blood_pressure" placeholder="resting_blood_pressure in mm Hg eg. 145">
+
+      </div>
+      <div class="form-box">
+        <input type="text" name="cholesterol" placeholder="cholesterol in mg/dl eg. 233">
+      </div>
+      
+      <div class="form-box">
+        <input type="text" name="rest_ecg" placeholder="rest_ecg eg. 0 or 1 or 2">
+      </div>
+
+      <div class="form-box">
+        <input type="text" name="fasting_blood_sugar" placeholder="fasting_blood_sugar (>120mg/dl , 1 = true; 0 = false">
+      </div>
+      <div class="form-box">
+
+        <input type="text" name="max_heart_rate_achieved" placeholder="max_heart_rate_achieved eg. 150">
+      </div>
+      <div class="form-box">
+        <input type="text" name="exercise_induced_angina" placeholder="exercise_induced_angina (1 = yes , 0 = no)">
+
+      </div>
+      <div class="form-box">
+        <input type="text" name="st_depression" placeholder="ST depression induced by exercise relative to rest eg. 2.3">
+
+      </div>
+      <div class="form-box">
+        <input type="text" name="st_slope" placeholder="slope of the peak exercise ST segment (1: up, 2: flat, 3: down)">
+      </div>
+
+      <div class="form-box">
+        <input type="text" name="num_major_vessels" placeholder="The number of major vessels (0-3)">
+
+      </div>
+      <div class="form-box">
+        <input type="text" name="thalassemia" placeholder="A blood disorder called thalassemia eg. 1">
+      </div>
+
+      <div class="form-box">
+        <input type="submit" name="submit" value="Predict">
+      </div>
+    </div>
+  </form>
+  </div>
+
+
+
+  <div class='footer'>
+      <div class="contact">
+          <a target="_blank" href="https://github.com/Divyanshubansaldb/Heartdisease-Prediction"><i class="fab fa-github fa-lg contact-icon"></i></a>
+          <a target="_blank" href="https://www.linkedin.com/in/divyanshu-bansal-6b2117173/"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+      </div>
+      <p class='footer-description'>Made with ❤️ by Divyanshu Bansal.</p>
+  </div>
+
+</body>
+
 </html>
