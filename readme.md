@@ -5,7 +5,11 @@ Deployed at: _https://heartdiseasepredictionmodel.herokuapp.com/_
 
 Screenshots of the website
 ![PNG](screenshots/Home1.png)
+![PNG](screenshots/Home2.png)
 
+Screenshots of the Results
+![PNG](screenshots/Result1.png)
+![PNG](screenshots/Result2.png)
 
 Heart is an important organ in human body as it pumps the blood to the various organs present in the body of a human being. As we can see heart disease are growing at a rapid pace and its causes could be anything from heredity to lifestyle which includes bad eating habits and poor sleep pattern and most importantly stress which has become an unwanted weed in everyone’s life.
 
