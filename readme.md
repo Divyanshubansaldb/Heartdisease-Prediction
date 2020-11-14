@@ -27,9 +27,9 @@ Heart is an important organ in human body as it pumps the blood to the various o
 
 This project gives the survey about different classification techniques used for predicting the risk level of each person based on age, gender, Blood pressure, cholesterol, pulse rate.
 
-Our project on “Heart Disease Prediction” system is particularly based on predictive modeling which predicts the disease of the user on the basis of the symptoms that user provides as an input to the system. The system analyzes the symptoms provided by the user as input and gives the probability of the disease as an output. We have used 5 different and very well known data science algorithms for Heart Disease Prediction such as Naïve Bayes, KNN, Decision Tree, Linear Regression and Random Forest Algorithms. These techniques calculate the probability of the disease.
+Our project on “Heart Disease Prediction” system is particularly based on predictive modeling which predicts the disease of the user on the basis of the symptoms that user provides as an input to the system. The system analyzes the symptoms provided by the user as input and gives the probability of the disease as an output. We have used 5 different and very well known data science algorithms for Heart Disease Prediction such as Naïve Bayes, KNN, Decision Tree, Logistic Regression and Random Forest Algorithms. These techniques calculate the probability of the disease.
 
- Therefore, average prediction accuracy probability 83% is obtained.
+ Therefore, best prediction accuracy we obtained was 90.16% using random forest algorithm.
  
 
 According to a survey done by World Health Organization, 12 million of deaths are taking place just because of one or other type of heart diseases also known as cardiovascular diseases.
