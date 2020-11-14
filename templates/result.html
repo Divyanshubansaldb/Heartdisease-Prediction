@@ -198,7 +198,7 @@
 				<h1>Prediction: <span class='danger' style = "color: lightcoral">Oops! You have Heart Disease.</span></h1>
 				<img class="gif" style= "margin-left:15%; margin-left: 25%;" src="{{ url_for('static', filename='diabetes.webp') }}" alt="Diabetes Image">
 			{% elif prediction==0 %}
-				<h1>Prediction: <span class='safe' style = "color:green">Great! You DON'T Heart Disease.</span></h1>
+				<h1>Prediction: <span class='safe' style = "color:green">Great! You DON'T have Heart Disease.</span></h1>
 				<img class="gif1" style= "margin-left:15%;" src="{{ url_for('static', filename='no-diabetes.webp') }}" alt="Not Diabetes Image">
 			{% endif %}
 		</div>
