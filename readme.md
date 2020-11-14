@@ -1,6 +1,6 @@
 # Heartdisease-Prediction
 
-![alt text](https://github.com/Divyanshubansaldb/Heartdisease-Prediction/screeshots/Home1.png?raw=true)
+![alt text](https://github.com/Divyanshubansaldb/Heartdisease-Prediction/blob/screeshots/Home1.png?raw=true)
 
 Heart is an important organ in human body as it pumps the blood to the various organs present in the body of a human being. As we can see heart disease are growing at a rapid pace and its causes could be anything from heredity to lifestyle which includes bad eating habits and poor sleep pattern and most importantly stress which has become an unwanted weed in everyone’s life.
 
